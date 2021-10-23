@@ -19,10 +19,10 @@ public class CollectibleScript : MonoBehaviour
                 switch(collectibleType)
                 {
                     case CollectibleType.Key:
-                        gameController.setKeys(gameController.keys + 1);
+                        gameController.setKeys(gameController.Keys + 1);
                         break;
                     case CollectibleType.Pebble:
-                        gameController.setPebbles(gameController.pebbles + 1);
+                        gameController.setPebbles(gameController.Pebbles + 1);
                         break;
                 }
 
