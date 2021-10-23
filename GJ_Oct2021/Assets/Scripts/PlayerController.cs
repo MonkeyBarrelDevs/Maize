@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     // Hidden Fields
     Vector2 moveDirection;
-    bool canMove;
+    public bool canMove;
 
     void Start()
     {

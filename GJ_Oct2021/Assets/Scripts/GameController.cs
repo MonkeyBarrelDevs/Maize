@@ -9,15 +9,22 @@ public class GameController : MonoBehaviour
     public int Ammo = 3;
     public bool Ispaused = false;
     public List<GameObject> Monsters = new List<GameObject>();
+    public GameObject Player;
+    private PlayerController playerController;
+    [SerializeField] GameObject pauseMenu;
 
     void Start()
     {
-        
+        playerController = Player.GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            playerController.canMove = !playerController.canMove;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+        }
     }
 
     public bool setPause()
