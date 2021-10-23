@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scenes Offical/MainMenu.unity
+    guid: 43bfd178faed24113bdba0f252947751
+  - enabled: 1
+    path: Assets/Scenes/Scenes Offical/ControlsScreen.unity
+    guid: 4a96e10caf5024a5b976d7f08d2a7b46
+  - enabled: 1
+    path: Assets/Scenes/Scenes Offical/Maize.unity
+    guid: e2bf50bb4e719405184a3df826a8c327
+  - enabled: 1
+    path: Assets/Scenes/Scenes Offical/DeathScreen.unity
+    guid: 2b5f5f80da74347e089e18aa3db54b89
+  - enabled: 1
+    path: Assets/Scenes/Scenes Offical/WinScreen.unity
+    guid: 87be3d34d130c48fea814717a1ed7de8
   m_configObjects: {}
