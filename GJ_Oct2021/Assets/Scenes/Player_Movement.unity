@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 32195871}
   - component: {fileID: 32195870}
   - component: {fileID: 32195872}
+  - component: {fileID: 32195873}
   m_Layer: 0
   m_Name: Key
   m_TagString: Key
@@ -261,6 +262,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &32195873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32195868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f9c57807b2674aa26157407e071e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1506994754}
+  collectibleType: 1
 --- !u!1 &93968983
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +500,7 @@ GameObject:
   - component: {fileID: 920821996}
   - component: {fileID: 920821995}
   - component: {fileID: 920821997}
+  - component: {fileID: 920821998}
   m_Layer: 0
   m_Name: Pebble
   m_TagString: Pebble
@@ -594,6 +610,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &920821998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920821993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f9c57807b2674aa26157407e071e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1506994754}
+  collectibleType: 0
 --- !u!1 &1020045091
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,9 +876,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78457f25cb46a4e6297ef8794f8685d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 0
-  pebbles: 0
-  IsPaused: 0
+  Keys: 0
+  Pebbles: 0
+  Ammo: 3
+  Ispaused: 0
   Monsters: []
 --- !u!4 &1506994755
 Transform:
@@ -910,7 +941,7 @@ GameObject:
   - component: {fileID: 1672457138}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
