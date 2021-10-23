@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerTransform;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speed;
+    [SerializeField] GameController gameController;
 
     // Hidden Fields
     Vector2 moveDirection;
@@ -47,5 +48,20 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
         return worldPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Pebble"))
+        {
+            Destroy(other.gameObject);
+            gameController.setPebbles(gameController.pebbles + 1);
+
+        }
+        if(other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            gameController.setKeys(gameController.keys + 1);
+        }
     }
 }
