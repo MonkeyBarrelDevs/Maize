@@ -64,5 +64,8 @@ public class GameController : MonoBehaviour
         return Pebbles;
     }
 
+    public void VictoryEvent()
+    {
 
+    }
 }
