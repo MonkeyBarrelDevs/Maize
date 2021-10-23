@@ -55,13 +55,13 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Pebble"))
         {
             Destroy(other.gameObject);
-            gameController.setPebbles(gameController.pebbles + 1);
+            gameController.setPebbles(gameController.Pebbles + 1);
 
         }
         if(other.gameObject.CompareTag("Key"))
         {
             Destroy(other.gameObject);
-            gameController.setKeys(gameController.keys + 1);
+            gameController.setKeys(gameController.Keys + 1);
         }
     }
 }
