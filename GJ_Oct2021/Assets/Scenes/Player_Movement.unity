@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab2cec5154419445afdb31fe3609ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1672457141}
   rb: {fileID: 1672457139}
   speed: 5
 --- !u!50 &1672457139
