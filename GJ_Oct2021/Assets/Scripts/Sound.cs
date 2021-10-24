@@ -14,6 +14,8 @@ public class Sound
     public float pitch;
     [Range(0f, 1f)]
     public float SpatialBlend;
+    
+    [SerializeField] public float MaxDistance;
 
     public bool loop;
 
