@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.spatialBlend = s.SpatialBlend;
             s.source.maxDistance = s.MaxDistance;
-            s.source.rolloffMode = AudioRolloffMode.Linear;
+            s.source.rolloffMode = AudioRolloffMode.Custom;
         }
     }
 
