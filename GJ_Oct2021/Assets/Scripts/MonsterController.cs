@@ -16,6 +16,8 @@ public class MonsterController : MonoBehaviour
 
     private bool isAimlessWanderer = false;
 
+    [SerializeField] Animator anim;
+
     //public bool stunned;
     // Start is called before the first frame update
     void Start()
@@ -87,9 +89,9 @@ public class MonsterController : MonoBehaviour
         Debug.Log("Hi");
         GameObject.FindGameObjectWithTag("Monster").GetComponent<CircleCollider2D>().enabled = false;
         aiPath.canMove = false;
+        anim.SetTrigger("Stunned");
         yield return new WaitForSeconds(4);
         GameObject.FindGameObjectWithTag("Monster").GetComponent<CircleCollider2D>().enabled = true;
         aiPath.canMove = true;
-        
     }
 }

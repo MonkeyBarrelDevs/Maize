@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538625008277127174}
   - component: {fileID: 1538625008277127175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TentacleFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1538625008606433277}
   - component: {fileID: 1538625008606433279}
   - component: {fileID: 1538625008606433278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 1538625010102296203}
   - component: {fileID: 1538625010102296204}
   - component: {fileID: 1538625010102296205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TentacleHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,9 +377,10 @@ GameObject:
   - component: {fileID: 3224727221516140973}
   - component: {fileID: 553256836802371647}
   - component: {fileID: 4865003674324310820}
-  m_Layer: 0
+  - component: {fileID: 337631677833278095}
+  m_Layer: 8
   m_Name: Tentacle
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,3 +507,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
+--- !u!114 &337631677833278095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538625010260156553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbea69bdb36b7924cb9287451cde2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 20
