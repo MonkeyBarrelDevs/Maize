@@ -19,9 +19,9 @@ public class AudioManager : MonoBehaviour
         //     return;
         // }
 
-        // DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject)
 
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = this.GetComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -37,23 +37,38 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-       
+        
     }
 
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        s.source.clip = s.clip;
+        s.source.volume = s.volume;
+        s.source.pitch = s.pitch;
+        s.source.loop = s.loop;
+        s.source.spatialBlend = s.SpatialBlend;
+        s.source.maxDistance = s.MaxDistance;
+        s.source.rolloffMode = AudioRolloffMode.Custom;
+        if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
         }
+        Debug.LogWarning(s.clip);
         s.source.Play();
     }
 
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        s.source.clip = s.clip;
+        s.source.volume = s.volume;
+        s.source.pitch = s.pitch;
+        s.source.loop = s.loop;
+        s.source.spatialBlend = s.SpatialBlend;
+        s.source.maxDistance = s.MaxDistance;
+        s.source.rolloffMode = AudioRolloffMode.Custom;
+        if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
         }
@@ -63,7 +78,14 @@ public class AudioManager : MonoBehaviour
     public bool isPlaying(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        s.source.clip = s.clip;
+        s.source.volume = s.volume;
+        s.source.pitch = s.pitch;
+        s.source.loop = s.loop;
+        s.source.spatialBlend = s.SpatialBlend;
+        s.source.maxDistance = s.MaxDistance;
+        s.source.rolloffMode = AudioRolloffMode.Custom;
+        if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
         }
