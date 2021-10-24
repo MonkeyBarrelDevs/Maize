@@ -9,9 +9,13 @@ public class FlashlightFlicker : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Debug.Log("getin");
+            this.gameObject.GetComponent<AudioSource>().Play(0);
+            Debug.Log("test");
             GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = false;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
             GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = true;
+
             
         }
     }
@@ -20,6 +24,7 @@ public class FlashlightFlicker : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            this.gameObject.GetComponent<AudioSource>().Play(0);
             GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = false;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
             GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = true;
