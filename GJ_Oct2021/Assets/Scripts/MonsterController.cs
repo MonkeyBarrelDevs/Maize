@@ -19,9 +19,12 @@ public class MonsterController : MonoBehaviour
         
     }
     private void OnTriggerEnter2D(Collider2D collider) {
+        /*if (collider.gameObject.tag.Equals("Flashlight")) {
+            StartCoroutine(StunMonster());
+        }*/
+
         if (collider.gameObject.tag.Equals("Shotgun")) {
             StartCoroutine(StunMonster());
-            
         }    
     }
     private IEnumerator StunMonster() {

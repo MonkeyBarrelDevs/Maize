@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float recoverySpeed;
     [SerializeField] float minSprintThreshold;
     [SerializeField] GameController gameController;
+    [SerializeField] float minSpeedThreshold;
+
+    [SerializeField] float shotgunLinger = 1;
 
     // Hidden Fields
     Vector2 moveDirection;
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = false;
         stamina = maxStamina;
         speed = baseSpeed;
     }
@@ -39,6 +43,11 @@ public class PlayerController : MonoBehaviour
 
         speed = IsSprinting ? sprintSpeed : baseSpeed;
 
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("HI");
+            StartCoroutine(ShotgunFire());
+        }
+
         if (!gameController.Ispaused)
         {
             // Update Stamina
@@ -48,8 +57,11 @@ public class PlayerController : MonoBehaviour
                 stamina = Mathf.Clamp(stamina + Time.deltaTime * recoverySpeed, 0, 100);                
 
             // 2D Movement
-            moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            rb.velocity = moveDirection * speed;
+            moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (moveDirection.magnitude < minSpeedThreshold)
+                rb.velocity = Vector2.zero;
+            else
+                rb.velocity = moveDirection.normalized * speed;
 
             // Camera Movement
             Vector3 mousePosition = GetMouseWorldPosition();
@@ -71,5 +83,12 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
         return worldPosition;
+    }
+
+    private IEnumerator ShotgunFire() {
+        Debug.Log("YO");
+        GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = true;
+        yield return new WaitForSeconds(shotgunLinger);
+        GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = false;
     }
 }

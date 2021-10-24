@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Pebble
   - Shotgun
+  - Flashlight
   layers:
   - Default
   - TransparentFX
