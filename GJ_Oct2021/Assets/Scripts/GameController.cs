@@ -81,6 +81,7 @@ public class GameController : MonoBehaviour
     public void DeathEvent()
     {
         Debug.Log("you died lol");
+        playerController.Die();
         loader.LoadLevelAtIndex(4);
     }
 }

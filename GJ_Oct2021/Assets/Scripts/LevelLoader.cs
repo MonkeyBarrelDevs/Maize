@@ -9,6 +9,12 @@ public class LevelLoader : MonoBehaviour
 
     [SerializeField] float transitionTime;
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            LoadNextLevel();
+    }
+
     public void LoadNextLevel() 
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
