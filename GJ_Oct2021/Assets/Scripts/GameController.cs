@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject Player;
     private PlayerController playerController;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] LevelLoader loader;
 
     void Start()
     {
@@ -74,10 +75,12 @@ public class GameController : MonoBehaviour
     public void VictoryEvent()
     {
         Debug.Log("Win");
+        loader.LoadLevelAtIndex(5);
     }
 
     public void DeathEvent()
     {
         Debug.Log("you died lol");
+        loader.LoadLevelAtIndex(4);
     }
 }

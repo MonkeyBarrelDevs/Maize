@@ -26,6 +26,10 @@ public class ButtonChecker : MonoBehaviour
             {
                 Lvlloader.LoadLevelAtIndex(3);
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5) 
+            {
+                Lvlloader.LoadLevelAtIndex(1);
+            }
         }
         else if (Input.GetButtonDown("Cancel"))
         {

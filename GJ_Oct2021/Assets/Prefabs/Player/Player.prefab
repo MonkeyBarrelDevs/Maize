@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 0.6875, y: 0.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3956016767733313780
@@ -199,7 +199,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 3956016767795430232}
   rb: {fileID: 3956016767795430214}
-  speed: 2.5
+  baseSpeed: 2.5
+  sprintSpeed: 5
+  sprintCost: 17
+  maxStamina: 100
+  recoverySpeed: 12
+  minSprintThreshold: 90
+  gameController: {fileID: 0}
+  minSpeedThreshold: 0.1
+  shotgunLinger: 0.25
 --- !u!1 &5204612476142142096
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 5204612476142142096}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 3956016767733313783}
   m_RootOrder: 1
@@ -246,15 +254,15 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.8352983, g: 0.8396226, b: 0.46258453, a: 1}
+  m_Intensity: 3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 21300000, guid: 6428d678d4e6a5649a813bc024515567, type: 3}
+  m_LightCookieSprite: {fileID: 21300000, guid: 181c354549e8a4247946e9bc37d2a987, type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2204841568561529254}
   - component: {fileID: 2204841568561529255}
+  - component: {fileID: 724728149969592331}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -50,3 +51,29 @@ MonoBehaviour:
   Monsters: []
   Player: {fileID: 0}
   pauseMenu: {fileID: 0}
+--- !u!114 &724728149969592331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204841568561529248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909886a184ab74c2c9e3f8d413ea4f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gamecon: {fileID: 0}
+  Valuelist: 
+  Ammoimages:
+  - {fileID: 0}
+  - {fileID: 0}
+  Pebbleimages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Keyimages: []
