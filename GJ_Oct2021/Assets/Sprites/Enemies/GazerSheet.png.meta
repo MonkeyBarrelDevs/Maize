@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 04550202a97b68143931649ceb3f78ca
+guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1557930236093978878
-    second: FarmerLegs_0
+      213: 8066877134000264003
+    second: GazerSheet_0
   - first:
-      213: 5419734642352823516
-    second: FarmerLegs_1
+      213: -8984630238502457888
+    second: GazerSheet_1
   - first:
-      213: 6958553721186255270
-    second: FarmerLegs_2
+      213: -1466576794729000232
+    second: GazerSheet_2
   - first:
-      213: -5244354263487872695
-    second: FarmerLegs_3
+      213: -8563683394530878682
+    second: GazerSheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FarmerLegs_0
+      name: GazerSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 19
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20727cc54be116ae0800000000000000
-      internalID: -1557930236093978878
+      spriteID: 3439ec2630e43ff60800000000000000
+      internalID: 8066877134000264003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FarmerLegs_1
+      name: GazerSheet_1
       rect:
         serializedVersion: 2
-        x: 22
+        x: 32
         y: 0
-        width: 22
-        height: 19
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc915631f3c63b40800000000000000
-      internalID: 5419734642352823516
+      spriteID: 0ede3d3966e205380800000000000000
+      internalID: -8984630238502457888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FarmerLegs_2
+      name: GazerSheet_2
       rect:
         serializedVersion: 2
-        x: 44
+        x: 64
         y: 0
-        width: 22
-        height: 19
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a187cdcdbfb19060800000000000000
-      internalID: 6958553721186255270
+      spriteID: 8d2d85aec2ca5abe0800000000000000
+      internalID: -1466576794729000232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FarmerLegs_3
+      name: GazerSheet_3
       rect:
         serializedVersion: 2
-        x: 66
+        x: 96
         y: 0
-        width: 22
-        height: 19
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9410088459f4837b0800000000000000
-      internalID: -5244354263487872695
+      spriteID: 62b5314335fa72980800000000000000
+      internalID: -8563683394530878682
       vertices: []
       indices: 
       edges: []
