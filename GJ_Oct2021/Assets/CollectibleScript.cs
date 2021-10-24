@@ -7,7 +7,8 @@ public class CollectibleScript : MonoBehaviour
     enum CollectibleType
     {
         Pebble,
-        Key
+        Key,
+        Ammo
     }
     [SerializeField] GameController gameController;
     [SerializeField] CollectibleType collectibleType;
@@ -15,15 +16,23 @@ public class CollectibleScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-                Destroy(this.gameObject);
                 switch(collectibleType)
                 {
-                    case CollectibleType.Key:
-                        gameController.setKeys(gameController.Keys + 1);
-                        break;
-                    case CollectibleType.Pebble:
-                        gameController.setPebbles(gameController.Pebbles + 1);
-                        break;
+                case CollectibleType.Key:
+                    Destroy(this.gameObject);
+                    gameController.setKeys(gameController.getKeys() + 1);
+                    break;
+                case CollectibleType.Pebble:
+                    Destroy(this.gameObject);
+                    gameController.setPebbles(gameController.getPebbles() + 1);
+                    break;
+                case CollectibleType.Ammo:
+                    if (gameController.getAmmo() < 2) 
+                    {
+                        Destroy(this.gameObject);
+                        gameController.setAmmo(gameController.getAmmo() + 1);
+                    }
+                    break;
                 }
 
         }

@@ -22,8 +22,8 @@ public class GameController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            playerController.canMove = !playerController.canMove;
-            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            Ispaused = !Ispaused;
+            pauseMenu.SetActive(Ispaused);
         }
     }
 
@@ -73,6 +73,6 @@ public class GameController : MonoBehaviour
 
     public void VictoryEvent()
     {
-
+        Debug.Log("Win");
     }
 }
