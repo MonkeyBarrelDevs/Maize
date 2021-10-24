@@ -18,16 +18,17 @@ public class MonsterController : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collider) {
-        /*if (collider.gameObject.tag.Equals("Flashlight")) {
+    /*private void OnCollisionEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag.Equals("Flashlight")) {
             StartCoroutine(StunMonster());
-        }*/
+        }
 
         if (collider.gameObject.tag.Equals("Shotgun")) {
             StartCoroutine(StunMonster());
         }    
-    }
-    private IEnumerator StunMonster() {
+    }*/
+    public IEnumerator StunMonster() {
+        Debug.Log("Hi");
         aiPath.canMove = false;
         yield return new WaitForSeconds(4);
         aiPath.canMove = true;

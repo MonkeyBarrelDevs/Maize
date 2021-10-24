@@ -9,6 +9,8 @@ TagManager:
   - Pebble
   - Shotgun
   - Flashlight
+  - Monster
+  - Unique Monster
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Obstacle
   - Shotgun Hitbox
   - Monster
-  - 
-  - 
+  - Flashlight Hitbox
+  - Unique Enemy
   - 
   - 
   - 

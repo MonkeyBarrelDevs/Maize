@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         speed = IsSprinting ? sprintSpeed : baseSpeed;
 
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("HI");
             StartCoroutine(ShotgunFire());
         }
 
@@ -86,9 +85,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private IEnumerator ShotgunFire() {
-        Debug.Log("YO");
-        GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = true;
-        yield return new WaitForSeconds(shotgunLinger);
-        GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = false;
+        if (gameController.getAmmo() > 0) {
+            gameController.setAmmo(gameController.getAmmo() - 1);
+            GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = true;
+            yield return new WaitForSeconds(shotgunLinger);
+            GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = false;
+            Debug.Log(gameController.getAmmo());
+        }
     }
 }
