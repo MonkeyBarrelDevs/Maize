@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{D1259582-1AB9-8B5D-64F8-ED77E36C0494}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelLoader.cs">
     <Files>
       <File FileName="Assets/Scripts/UI Controller.cs" Line="28" Column="6" />
       <File FileName="Assets/Scripts/LevelLoader.cs" Line="8" Column="42" />
-      <File FileName="Assets/Scripts/ButtonChecker.cs" Line="41" Column="14" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="14" Column="43" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="18" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
