@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CornTUp_Anim
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 3401820285090603223, guid: 85c5ec9716f750e4cb9031e089aeadd8, type: 3}
-  - {fileID: 6155552712058369764, guid: 928dc62586983f74fa9eabc49328df5a, type: 3}
+  - {fileID: 8799122216471196507, guid: 08268805237e4cf4a91862c2a8f3ef92, type: 3}
+  - {fileID: -8407898621100225068, guid: d08435b4ac959cf4ea7a22f0ac387b9a, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
