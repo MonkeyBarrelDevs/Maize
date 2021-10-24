@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Maze Ambience");
+       
     }
 
     public void Play(string name)
