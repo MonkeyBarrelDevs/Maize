@@ -68,9 +68,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -710999469
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1557930236093978878, guid: 04550202a97b68143931649ceb3f78ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     SpatialBlend: 1
-    MaxDistance: 0
+    MaxDistance: 17
     loop: 0
     source: {fileID: 0}
   - name: Stunned
@@ -162,7 +162,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     SpatialBlend: 1
-    MaxDistance: 0
+    MaxDistance: 17
     loop: 0
     source: {fileID: 0}
 --- !u!82 &1538625008606433278
@@ -330,9 +330,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -186003241
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -534314759929191465, guid: dd3b9330456df4a2e850cc2b454b8971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
