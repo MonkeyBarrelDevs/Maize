@@ -23,8 +23,10 @@ AnimationClip:
       value: {fileID: 8066877134000264003, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
     - time: 0.16666667
       value: {fileID: -8984630238502457888, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
-    - time: 0.35
+    - time: 0.33333334
       value: {fileID: 8066877134000264003, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
+    - time: 0.5
+      value: {fileID: -8984630238502457888, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
     attribute: m_Sprite
     path: GazerBody
     classID: 212
@@ -47,12 +49,13 @@ AnimationClip:
     - {fileID: 8066877134000264003, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
     - {fileID: -8984630238502457888, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
     - {fileID: 8066877134000264003, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
+    - {fileID: -8984630238502457888, guid: 9f97fd2fdf2be4bc3ad0baabc1407bb6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.36666667
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -71,4 +74,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: Play
+    data: Walk
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
