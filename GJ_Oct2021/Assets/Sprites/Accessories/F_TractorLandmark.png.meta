@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: b345dcf3609cef74692b654380775cc8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5012599753891307352
+    second: F_TractorLandmark_0
+  - first:
+      213: -3269013664434385801
+    second: F_TractorLandmark_1
+  - first:
+      213: -858176735111632450
+    second: F_TractorLandmark_2
+  - first:
+      213: -5214108288715508641
+    second: F_TractorLandmark_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +53,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +101,115 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: F_TractorLandmark_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 16, y: -16}
+        - {x: -13, y: -16}
+        - {x: -13, y: 15}
+        - {x: -1, y: 15}
+        - {x: -1, y: 0}
+        - {x: 12.111786, y: 0}
+        - {x: 16, y: -2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85fd6e31be4509540800000000000000
+      internalID: 5012599753891307352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_TractorLandmark_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -2}
+        - {x: 4, y: -2}
+        - {x: 16, y: -12}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c8d75646122a2d0800000000000000
+      internalID: -3269013664434385801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_TractorLandmark_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13, y: -14}
+        - {x: -13, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 2}
+        - {x: 11.891712, y: 0}
+        - {x: -1, y: 0}
+        - {x: -1, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9aa256ec42714f0800000000000000
+      internalID: -858176735111632450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_TractorLandmark_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 2}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 14, y: 3}
+        - {x: 4, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5431be0324c3a7b0800000000000000
+      internalID: -5214108288715508641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
