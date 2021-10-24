@@ -7,24 +7,17 @@ public class WellDropoff : MonoBehaviour
     [SerializeField] int targetPebbles;
     [SerializeField] GameController gameController;
     [SerializeField] int droppedPebbles;
-    public SpriteRenderer spriteRenderer;
-    public Sprite wellArrowSprite, wellSprite;
-
-    void Start()
-    {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] Sprite[] countdownSprites;
+    [SerializeField] SpriteRenderer countdownRenderer;
+    [SerializeField] SpriteRenderer arrowRenderer;
 
     void Update()
     {
-        if(gameController.getPebbles() > 0)
-        {
-            spriteRenderer.sprite = wellArrowSprite;
-        }
-        else
-        {
-            spriteRenderer.sprite = wellSprite;
-        }
+        // Change the well sprite if you are holding a pebble
+        arrowRenderer.enabled = gameController.getPebbles() > 0;
+
+        // Change the countdown sprite above the well depending on the pebbles you have given it
+        countdownRenderer.sprite = countdownSprites[droppedPebbles];
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
