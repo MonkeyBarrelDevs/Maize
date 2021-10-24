@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  anim: {fileID: 1538625008606433277}
 --- !u!58 &4865003674324310820
 CircleCollider2D:
   m_ObjectHideFlags: 0

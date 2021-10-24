@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float minSprintThreshold;
     [SerializeField] GameController gameController;
     [SerializeField] float minSpeedThreshold;
+    [SerializeField] Animator anim;
 
     [SerializeField] float shotgunLinger = 1;
 
@@ -58,9 +59,15 @@ public class PlayerController : MonoBehaviour
             // 2D Movement
             moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (moveDirection.magnitude < minSpeedThreshold)
+            {
                 rb.velocity = Vector2.zero;
+                anim.SetBool("Moving", false);
+            }
             else
+            {
                 rb.velocity = moveDirection.normalized * speed;
+                anim.SetBool("Moving", true);
+            }
 
             // Camera Movement
             Vector3 mousePosition = GetMouseWorldPosition();
@@ -85,12 +92,18 @@ public class PlayerController : MonoBehaviour
     }
 
     private IEnumerator ShotgunFire() {
-        if (gameController.getAmmo() > 0) {
+        if (gameController.getAmmo() > 0 && !gameController.Ispaused) {
+            anim.SetTrigger("Shoot");
             gameController.setAmmo(gameController.getAmmo() - 1);
             GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = true;
             yield return new WaitForSeconds(shotgunLinger);
             GameObject.FindGameObjectWithTag("Shotgun").GetComponent<PolygonCollider2D>().enabled = false;
             Debug.Log(gameController.getAmmo());
         }
+    }
+
+    public void Die() 
+    {
+        anim.SetTrigger("Killed");
     }
 }
