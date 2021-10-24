@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5062281425093066194}
   - component: {fileID: 5062281425093066195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GazerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,10 @@ GameObject:
   - component: {fileID: 1180951462111392078}
   - component: {fileID: 4806574438387556836}
   - component: {fileID: 5645191705242426807}
-  m_Layer: 0
+  - component: {fileID: 6436389978977982957}
+  m_Layer: 10
   m_Name: Gazer
-  m_TagString: Untagged
+  m_TagString: Unique Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,6 +226,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
+--- !u!114 &6436389978977982957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062281425749015503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbea69bdb36b7924cb9287451cde2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 20
 --- !u!1 &5062281426486568353
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +251,7 @@ GameObject:
   - component: {fileID: 5062281426486568359}
   - component: {fileID: 5062281426486568357}
   - component: {fileID: 5062281426486568356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
