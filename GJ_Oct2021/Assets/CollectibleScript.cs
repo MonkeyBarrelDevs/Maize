@@ -10,8 +10,15 @@ public class CollectibleScript : MonoBehaviour
         Key,
         Ammo
     }
-    [SerializeField] GameController gameController;
+
+    private GameController gameController;
     [SerializeField] CollectibleType collectibleType;
+
+    private void Start()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))

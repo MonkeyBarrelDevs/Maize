@@ -75,4 +75,9 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Win");
     }
+
+    public void DeathEvent()
+    {
+        Debug.Log("you died lol");
+    }
 }
