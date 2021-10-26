@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     public bool togglePause()
     {
         Ispaused = !Ispaused;
-        listener.enabled = !Ispaused;
+        AudioListener.volume = (Ispaused ? 0f : 1f);
         return Ispaused;
     }
 
