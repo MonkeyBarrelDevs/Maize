@@ -44,7 +44,6 @@ public class MC_Gazer : MonsterController
 
     protected override void WanderingChaseCheck()
     {
-        if (enraged)
-            base.WanderingChaseCheck();
+        WanderingChaseCheck(!enraged);
     }
 }

@@ -7,10 +7,10 @@ public class MonsterController : MonoBehaviour
 {   
     [SerializeField] protected Animator anim;
     [SerializeField] protected float stunTime = 3;
+    [SerializeField] protected float detectionRadius = 5;
     protected AIPath aiPath;
     protected GameController gameController;
     protected GameObject player;
-    protected bool withinChaseProximity = false;
     protected bool isWanderer = false;
     protected bool isAimlessWanderer = false;
     protected bool isStunned = false;
@@ -36,24 +36,29 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    protected virtual void WanderingChaseCheck() {
-        if (Vector3.Distance (player.transform.position, this.transform.position) < 5) {
-            // Debug.Log("COME HERE");
-            withinChaseProximity = true;
-        } else {
-            withinChaseProximity = false;
-        }
-        if (withinChaseProximity) {
+    protected virtual void WanderingChaseCheck() 
+    {
+        WanderingChaseCheck(true);
+    }
+
+    protected void WanderingChaseCheck(bool doChase) 
+    {
+        bool withinProximity = Vector3.Distance(player.transform.position, this.transform.position) < detectionRadius;
+        if (withinProximity && doChase)
+        {
             Debug.Log("Chase started");
             wanderSetter.enabled = false;
             destinationSetter.enabled = true;
-        } else {
+        }
+        else
+        {
             wanderSetter.enabled = true;
             destinationSetter.enabled = false;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collider) {
+    private void OnCollisionEnter2D(Collision2D collider) 
+    {
         //Debug.Log("yo");
         if (collider.gameObject.tag.Equals("Player") && aiPath.canMove) {
             gameController.DeathEvent();
