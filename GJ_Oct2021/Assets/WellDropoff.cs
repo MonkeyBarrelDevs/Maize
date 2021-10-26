@@ -5,11 +5,18 @@ using UnityEngine;
 public class WellDropoff : MonoBehaviour
 {
     [SerializeField] int targetPebbles;
-    [SerializeField] GameController gameController;
     [SerializeField] int droppedPebbles;
     [SerializeField] Sprite[] countdownSprites;
     [SerializeField] SpriteRenderer countdownRenderer;
     [SerializeField] SpriteRenderer arrowRenderer;
+
+    GameController gameController;
+    AudioManager manager;
+
+    private void Start()
+    {
+        FindReferences();
+    }
 
     void Update()
     {
@@ -23,10 +30,17 @@ public class WellDropoff : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            manager.Play("DropMagicObject");
             droppedPebbles += gameController.getPebbles();
             gameController.setPebbles(0);
         }
         if(droppedPebbles >= targetPebbles)
             gameController.VictoryEvent();
+    }
+
+    void FindReferences()
+    {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        manager = gameController.GetComponent<AudioManager>();
     }
 }

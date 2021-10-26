@@ -83,14 +83,14 @@ MonoBehaviour:
   repathRate: 0.1
   canSearch: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce629f05cadb4b45a33a0ece86e59f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   anim: {fileID: 2648358582862900575}
+  stunTime: 3
 --- !u!58 &4978565799106854564
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -5357817920708379506, guid: 996c910a3c41d473dbd62c75265c1d7e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5660378, g: 0.509968, b: 0.509968, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

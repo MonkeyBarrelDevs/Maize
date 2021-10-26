@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3063646868792262086}
   - component: {fileID: 8140448122916952053}
   - component: {fileID: 2192627609831227063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Persuer
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   repathRate: 0.1
   canSearch: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 1.7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce629f05cadb4b45a33a0ece86e59f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   anim: {fileID: 2190261038620016348}
+  stunTime: 3
 --- !u!58 &2192627609831227063
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2190261037907518215}
   - component: {fileID: 2190261037907518214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PersuerFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 3485866963662372369, guid: 5e3046164a4eb4cada4832a243cb3fba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5660378, g: 0.46724817, b: 0.46724817, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 2190261038620016348}
   - component: {fileID: 2190261038620016351}
   - component: {fileID: 2190261038620016350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2190261038870239822}
   - component: {fileID: 2190261038870239817}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PersuerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -3698429115377294427, guid: 5e3046164a4eb4cada4832a243cb3fba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5660378, g: 0.46724817, b: 0.46724817, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

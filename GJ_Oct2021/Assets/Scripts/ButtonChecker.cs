@@ -43,7 +43,7 @@ public class ButtonChecker : MonoBehaviour
 
     public void  resume_Game(bool Unimportant)
     {
-        GameCon.setPause();
+        GameCon.togglePause();
     }
 
 }

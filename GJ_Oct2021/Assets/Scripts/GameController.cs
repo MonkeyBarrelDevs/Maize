@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private PlayerController playerController;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] LevelLoader loader;
+    [SerializeField] AudioListener listener;
 
     void Start()
     {
@@ -23,14 +24,14 @@ public class GameController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Ispaused = !Ispaused;
-            pauseMenu.SetActive(Ispaused);
+            pauseMenu.SetActive(togglePause());
         }
     }
 
-    public bool setPause()
+    public bool togglePause()
     {
         Ispaused = !Ispaused;
+        listener.enabled = !Ispaused;
         return Ispaused;
     }
 
@@ -81,6 +82,7 @@ public class GameController : MonoBehaviour
     public void DeathEvent()
     {
         Debug.Log("you died lol");
+        Ispaused = true;
         playerController.Die();
         loader.LoadLevelAtIndex(4);
     }

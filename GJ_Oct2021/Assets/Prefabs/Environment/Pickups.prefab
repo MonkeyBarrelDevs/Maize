@@ -654,7 +654,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pebble (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7688390420160820618, guid: 31a025f696e7613468a66db76f0dfb1b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31a025f696e7613468a66db76f0dfb1b, type: 3}
 --- !u!4 &2276107783900423320 stripped
 Transform:

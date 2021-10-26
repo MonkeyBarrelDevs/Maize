@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315520553235223490}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 30.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3956016767733313783}
   m_RootOrder: 2
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315520553235223490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2651433591423425957}
   - component: {fileID: 5083998479803313777}
   m_Layer: 0
-  m_Name: model
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924575902163438945}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -244,7 +244,7 @@ Transform:
   - {fileID: 5890704897292664001}
   m_Father: {fileID: 3956016767795430232}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!95 &7994817164027817696
 Animator:
   serializedVersion: 3
@@ -279,9 +279,9 @@ MonoBehaviour:
   sounds:
   - name: Walk1
     clip: {fileID: 8300000, guid: c0df1f2cde02a470c862cbdae5088151, type: 3}
-    volume: 1
+    volume: 0.32
     pitch: 1
-    SpatialBlend: 1
+    SpatialBlend: 0
     MaxDistance: 500
     loop: 0
     source: {fileID: 0}
@@ -290,12 +290,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     SpatialBlend: 1
-    MaxDistance: 500
+    MaxDistance: 17
     loop: 0
     source: {fileID: 0}
   - name: Walk2
     clip: {fileID: 8300000, guid: 1bf1e828164f443078e05dc9e3ada897, type: 3}
-    volume: 1
+    volume: 0.32
     pitch: 1
     SpatialBlend: 1
     MaxDistance: 500
@@ -303,6 +303,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Fire
     clip: {fileID: 8300000, guid: 46c314a3cb3e74802b92d9c57440dbfe, type: 3}
+    volume: 1
+    pitch: 1
+    SpatialBlend: 1
+    MaxDistance: 500
+    loop: 0
+    source: {fileID: 0}
+  - name: NoAmmo
+    clip: {fileID: 8300000, guid: 74c21b8645164654196eac5c087b5f6b, type: 3}
     volume: 1
     pitch: 1
     SpatialBlend: 1
@@ -557,7 +565,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -186003241
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -579,7 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3956016767733313783}
   m_Layer: 0
-  m_Name: Model
+  m_Name: Mechanics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,13 +697,13 @@ MonoBehaviour:
   playerTransform: {fileID: 3956016767795430232}
   rb: {fileID: 3956016767795430214}
   baseSpeed: 2.5
-  sprintSpeed: 5
-  sprintCost: 17
+  sprintSpeed: 4.5
+  sprintCost: 25
   maxStamina: 100
-  recoverySpeed: 12
+  recoverySpeed: 15
   minSprintThreshold: 90
-  gameController: {fileID: 0}
   minSpeedThreshold: 0.1
+  anim: {fileID: 7994817164027817696}
   shotgunLinger: 0.25
 --- !u!1 &4655904452895051385
 GameObject:
@@ -708,7 +716,7 @@ GameObject:
   - component: {fileID: 7063273585897071659}
   - component: {fileID: 7403174466676071068}
   - component: {fileID: 7277434943058308621}
-  - component: {fileID: 9074728108924055801}
+  - component: {fileID: 5757981892791616983}
   m_Layer: 9
   m_Name: FlashlightTrigger
   m_TagString: Flashlight
@@ -724,8 +732,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4655904452895051385}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 30.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3956016767733313783}
   m_RootOrder: 1
@@ -768,7 +776,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4655904452895051385}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -812,7 +820,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9074728108924055801
+--- !u!114 &5757981892791616983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -821,7 +829,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4655904452895051385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148d6b250265211418249d8eab074c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d5a968a7b7954140b7c8b52e64404a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5204612476142142096
@@ -870,13 +878,13 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.8352983, g: 0.8396226, b: 0.46258453, a: 1}
+  m_Color: {r: 0.99846697, g: 1, b: 0.8528302, a: 1}
   m_Intensity: 3
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 181c354549e8a4247946e9bc37d2a987, type: 3}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 100
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
