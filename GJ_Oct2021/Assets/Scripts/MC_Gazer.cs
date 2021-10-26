@@ -7,11 +7,14 @@ public class MC_Gazer : MonsterController
     [SerializeField] float enrageTime = 3;
     [SerializeField] float speedMultiplier = 1.25f;
     bool enraged = false;
+    bool enraging = false;
 
-    public void InFlashlight(bool inFlashlight) 
+    public void InFlashlight(bool inFlashlight)
     {
-        isStunned = !enraged && inFlashlight;
-        anim.SetBool("Stunned", isStunned);
+        if (!enraged) { 
+            isStunned = inFlashlight;
+            anim.SetBool("Stunned", isStunned);
+        }
     }
 
     override
@@ -37,5 +40,11 @@ public class MC_Gazer : MonsterController
             enraged = false;
             aiPath.maxSpeed = initialSpeed;
         }
+    }
+
+    protected override void WanderingChaseCheck()
+    {
+        if (enraged)
+            base.WanderingChaseCheck();
     }
 }

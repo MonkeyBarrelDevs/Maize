@@ -14,6 +14,9 @@ public class MonsterController : MonoBehaviour
     protected bool isWanderer = false;
     protected bool isAimlessWanderer = false;
     protected bool isStunned = false;
+    protected CircleCollider2D circleCollider;
+    protected WanderingDestinationSetter wanderSetter;
+    protected AIDestinationSetter destinationSetter;
 
 
     //public bool stunned;
@@ -33,67 +36,72 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void WanderingChaseCheck() {
+    protected virtual void WanderingChaseCheck() {
         if (Vector3.Distance (player.transform.position, this.transform.position) < 5) {
-            Debug.Log("COME HERE");
+            // Debug.Log("COME HERE");
             withinChaseProximity = true;
         } else {
             withinChaseProximity = false;
         }
         if (withinChaseProximity) {
             Debug.Log("Chase started");
-             GetComponent<WanderingDestinationSetter>().enabled = false;
-             GetComponent<AIDestinationSetter>().enabled = true;
+            wanderSetter.enabled = false;
+            destinationSetter.enabled = true;
         } else {
-            GetComponent<WanderingDestinationSetter>().enabled = true;
-            GetComponent<AIDestinationSetter>().enabled = false;
+            wanderSetter.enabled = true;
+            destinationSetter.enabled = false;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collider) {
         //Debug.Log("yo");
         if (collider.gameObject.tag.Equals("Player") && aiPath.canMove) {
             gameController.DeathEvent();
         }   
     }
+
     public virtual IEnumerator StunMonster() {
-        Debug.Log("Hi");
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        // Debug.Log("Hi");
+        circleCollider.enabled = false;
         isStunned = true;
         anim.SetTrigger("Stunned");
         yield return new WaitForSeconds(stunTime);
-        gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        circleCollider.enabled = true;
         isStunned = false;
+    }
+
+    void MonsterSetup()
+    {
+        if (wanderSetter == null)
+        {
+            Debug.Log("Not a wanderer!");
+            destinationSetter.enabled = true;
+        }
+        else
+        {
+            if (destinationSetter == null)
+            {
+                // Debug.Log("An aimless wanderer!");
+                isAimlessWanderer = true;
+                wanderSetter.enabled = true;
+            }
+            else
+            {
+                // Debug.Log("A proximity chaser!");
+                isWanderer = true;
+                wanderSetter.enabled = true;
+                destinationSetter.enabled = false;
+            }
+        }
     }
 
     void FindReferences() 
     {
+        wanderSetter = gameObject.GetComponent<WanderingDestinationSetter>();
+        destinationSetter = gameObject.GetComponent<AIDestinationSetter>();
+        aiPath = gameObject.GetComponent<AIPath>();
+        circleCollider = gameObject.GetComponent<CircleCollider2D>();
         player = GameObject.FindWithTag("Player");
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-    }
-
-    void MonsterSetup() 
-    {
-        aiPath = gameObject.GetComponent<AIPath>();
-        if (GetComponent<WanderingDestinationSetter>() == null)
-        {
-            Debug.Log("Not a wanderer!");
-            GetComponent<AIDestinationSetter>().enabled = true;
-        }
-        else
-        {
-            if (GetComponent<AIDestinationSetter>() == null)
-            {
-                Debug.Log("An aimless wanderer!");
-                isAimlessWanderer = true;
-                GetComponent<WanderingDestinationSetter>().enabled = true;
-            }
-            else
-            {
-                Debug.Log("A wanderer!");
-                isWanderer = true;
-                GetComponent<WanderingDestinationSetter>().enabled = true;
-                GetComponent<AIDestinationSetter>().enabled = false;
-            }
-        }
     }
 }

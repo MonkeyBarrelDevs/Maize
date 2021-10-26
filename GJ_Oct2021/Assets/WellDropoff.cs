@@ -30,8 +30,10 @@ public class WellDropoff : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            manager.Play("DropMagicObject");
-            droppedPebbles += gameController.getPebbles();
+            int pebbles = gameController.getPebbles();
+            if (pebbles > 0)
+                manager.Play("DropMagicObject");
+            droppedPebbles += pebbles;
             gameController.setPebbles(0);
         }
         if(droppedPebbles >= targetPebbles)

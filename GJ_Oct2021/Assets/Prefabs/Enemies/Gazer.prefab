@@ -240,8 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5062281426486568359}
   stunTime: 3
-  enrageTime: 3
-  speedMultiplier: 1.25
+  enrageTime: 6
+  speedMultiplier: 1.35
 --- !u!1 &5062281426486568353
 GameObject:
   m_ObjectHideFlags: 0
