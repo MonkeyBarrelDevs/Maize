@@ -36,6 +36,8 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
+        ResetDefaults();
+
         SceneManager.LoadScene(levelIndex);
     }
 
@@ -43,5 +45,9 @@ public class LevelLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(transitionTime);
 
+    }
+
+    void ResetDefaults() 
+    {
     }
 }

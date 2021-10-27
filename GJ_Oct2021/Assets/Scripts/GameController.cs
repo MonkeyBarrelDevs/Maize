@@ -10,29 +10,32 @@ public class GameController : MonoBehaviour
     public bool Ispaused = false;
     public List<GameObject> Monsters = new List<GameObject>();
     public GameObject Player;
-    private PlayerController playerController;
+    PlayerController playerController;
+    AudioManager manager;
+    bool isDying = false;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] LevelLoader loader;
-    [SerializeField] AudioListener listener;
+    [SerializeField] float deathHoldTimer = 2.5f;
 
     void Start()
     {
-        playerController = Player.GetComponent<PlayerController>();
+        FindReferences();
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.SetActive(togglePause());
+            TogglePause();
+            manager.Play("Resume");
+            pauseMenu.SetActive(Ispaused);
         }
     }
 
-    public bool togglePause()
+    public void TogglePause()
     {
         Ispaused = !Ispaused;
         AudioListener.volume = (Ispaused ? 0f : 1f);
-        return Ispaused;
     }
 
     public int setAmmo(int NewNum)
@@ -75,15 +78,29 @@ public class GameController : MonoBehaviour
 
     public void VictoryEvent()
     {
-        Debug.Log("Win");
+        // Debug.Log("Win");
         loader.LoadLevelAtIndex(5);
     }
 
     public void DeathEvent()
     {
-        Debug.Log("you died lol");
+        // Debug.Log("you died lol");
         Ispaused = true;
+        if (!isDying)
+            isDying = true;
+            StartCoroutine(DeathEvent(deathHoldTimer));
+    }
+
+    IEnumerator DeathEvent(float delay) 
+    {
         playerController.Die();
+        yield return new WaitForSeconds(delay);
         loader.LoadLevelAtIndex(4);
+    }
+
+    void FindReferences() 
+    {
+        playerController = Player.GetComponent<PlayerController>();
+        manager = GetComponent<AudioManager>();
     }
 }

@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float minSpeedThreshold;
     [SerializeField] Animator anim;
     [SerializeField] float shotgunLinger = 1;
+    [SerializeField] AudioManager breathingSFXManager;
 
     // Hidden Fields
     Vector2 moveDirection;
-    private bool IsSprinting;
+    private bool isSprinting;
     private float speed;
     private float stamina;
     GameController gameController;
@@ -41,13 +42,12 @@ public class PlayerController : MonoBehaviour
             // Check Sprinting
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                IsSprinting = (stamina > minSprintThreshold) || (IsSprinting && stamina > 0);
+                isSprinting = (stamina > minSprintThreshold) || (isSprinting && stamina > 0);
             }
             else
-                IsSprinting = false;
-            anim.SetBool("Sprinting", IsSprinting);
-
-            speed = IsSprinting ? sprintSpeed : baseSpeed;
+                isSprinting = false;
+            anim.SetBool("Sprinting", isSprinting);
+            speed = isSprinting ? sprintSpeed : baseSpeed;
 
             // Check Shotgun
             if (Input.GetMouseButtonDown(0))
@@ -55,22 +55,10 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(ShotgunFire());
             }
 
-            // Update Stamina
-            if (IsSprinting)
-                stamina = Mathf.Clamp(stamina - Time.deltaTime * sprintCost, 0, 100);
-            else
-                stamina = Mathf.Clamp(stamina + Time.deltaTime * recoverySpeed, 0, 100);
-
             // 2D Movement
             moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            if (moveDirection.magnitude > minSpeedThreshold)
-            {
-                IsMoving(true);
-            }
-            else
-            {
-                IsMoving(false);
-            }
+            bool isMoving = moveDirection.magnitude > minSpeedThreshold;
+            IsMoving(isMoving);
 
             // Camera Movement
             Vector3 mousePosition = GetMouseWorldPosition();
@@ -78,6 +66,21 @@ public class PlayerController : MonoBehaviour
             Vector3 aimDirection = (mousePosition - transform.position).normalized;
             float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
             playerTransform.eulerAngles = new Vector3(0, 0, angle);
+
+            // Update Stamina
+            if (isSprinting && isMoving)
+                stamina = Mathf.Clamp(stamina - Time.deltaTime * sprintCost, 0, 100);
+            else
+                stamina = Mathf.Clamp(stamina + Time.deltaTime * recoverySpeed, 0, 100);
+
+            // Handle Animation Speed Scaling
+            anim.speed = (isSprinting && isMoving ? sprintSpeed / baseSpeed : 1f);
+
+            // Play heavy breathing if below the minimum stamina threshold
+            if (stamina < minSprintThreshold && !breathingSFXManager.isPlaying("HeavyBreathing"))
+            {
+                breathingSFXManager.Play("HeavyBreathing");
+            }
         }
         else 
         {
@@ -116,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die() 
     {
+        rb.freezeRotation = true;
         anim.SetTrigger("Killed");
     }
 

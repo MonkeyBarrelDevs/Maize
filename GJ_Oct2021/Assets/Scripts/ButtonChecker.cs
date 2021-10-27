@@ -10,6 +10,7 @@ public class ButtonChecker : MonoBehaviour
     public GameObject Pausemenu;
     public Animator Mainmenuenter;
     public Animator Mainmenuexit;
+    public AudioManager manager;
 
 
     // Update is called once per frame
@@ -20,15 +21,17 @@ public class ButtonChecker : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 Mainmenuenter.SetTrigger("EnterPressed");
-                Lvlloader.LoadLevelAtIndex(2);
+                Lvlloader.LoadLevelAtIndex(2); // Go to controls menu
             }
             else if (SceneManager.GetActiveScene().buildIndex == 2)
             {
-                Lvlloader.LoadLevelAtIndex(3);
+                Mainmenuenter.SetTrigger("Continue");
+                Lvlloader.LoadLevelAtIndex(3); // Go to gameplay
             }
             else if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5) 
             {
-                Lvlloader.LoadLevelAtIndex(1);
+                manager.Play("Continue");
+                Lvlloader.LoadLevelAtIndex(1); // Return to main menu
             }
         }
         else if (Input.GetButtonDown("Cancel"))
@@ -36,14 +39,13 @@ public class ButtonChecker : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 Mainmenuexit.SetTrigger("EscapePressed");
-                Application.Quit();
+                Application.Quit(); // Quit application
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                Mainmenuexit.SetTrigger("Return");
+                Lvlloader.LoadLevelAtIndex(1); // Return to main menu
             }
         }
     }
-
-    public void  resume_Game(bool Unimportant)
-    {
-        GameCon.togglePause();
-    }
-
 }
