@@ -20,6 +20,7 @@ public class MC_Gazer : MonsterController
     override
     public IEnumerator StunMonster() 
     {
+        sprayBlood();
         if (!enraged)
         {
             Debug.Log("Gaze");

@@ -5,29 +5,47 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class FlashlightFlicker : MonoBehaviour
 {
-    private IEnumerator OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            Debug.Log("getin");
-            this.gameObject.GetComponent<AudioSource>().Play(0);
-            Debug.Log("test");
-            GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = false;
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
-            GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = true;
+    [SerializeField] float timeMin = 0.1f;
+    [SerializeField] float timeMax = 0.7f;
+    [SerializeField] float flickerThreshold = 10;
+    [SerializeField] float delayMin = 2.5f;
+    [SerializeField] float delayMax = 4f;
+    GameObject player;
+    Light2D light;
+    bool isFlickering = false;
 
-            
+    private void Start()
+    {
+        FindReferences();
+    }
+
+    private void Update()
+    {
+        while (Vector3.Distance(player.transform.position, transform.position) < flickerThreshold && !isFlickering) 
+        {
+            StartCoroutine(flicker());
         }
     }
 
-    private IEnumerator OnTriggerExit2D(Collider2D collision)
+    IEnumerator flicker() 
     {
-        if (collision.tag == "Player")
-        {
-            this.gameObject.GetComponent<AudioSource>().Play(0);
-            GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = false;
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
-            GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>().enabled = true;
-        }
+        // Stops from flickering within timeframe
+        isFlickering = true;
+
+        // Flicker the flashlight
+        this.gameObject.GetComponent<AudioSource>().Play(0);
+        light.enabled = false;
+        yield return new WaitForSeconds(Random.Range(timeMin, timeMax));
+        light.enabled = true;
+
+        // Restrict rate of flicker
+        yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
+        isFlickering = false;
+    }
+
+    void FindReferences() 
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        light = GameObject.FindGameObjectWithTag("LightSource").GetComponent<Light2D>();
     }
 }

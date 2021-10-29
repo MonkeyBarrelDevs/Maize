@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] Animator transition;
-
+    [SerializeField] float screenHoldTime = 2.5f;
     [SerializeField] float transitionTime;
 
-    private void Update()
+    private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
-            LoadNextLevel();
+            StartCoroutine(Delay(screenHoldTime));
     }
 
     public void LoadNextLevel() 
@@ -36,8 +36,6 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        ResetDefaults();
-
         SceneManager.LoadScene(levelIndex);
     }
 
@@ -47,7 +45,9 @@ public class LevelLoader : MonoBehaviour
 
     }
 
-    void ResetDefaults() 
+    IEnumerator Delay(float delay) 
     {
+        yield return new WaitForSeconds(delay);
+        LoadNextLevel();
     }
 }

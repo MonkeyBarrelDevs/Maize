@@ -240,6 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5062281426486568359}
   stunTime: 3
+  detectionRadius: 5
+  bloodParticleSystem: {fileID: 8682596778014586159, guid: bd6b7306fb0b19842a544e81a6f251b7, type: 3}
   enrageTime: 6
   speedMultiplier: 1.35
 --- !u!1 &5062281426486568353

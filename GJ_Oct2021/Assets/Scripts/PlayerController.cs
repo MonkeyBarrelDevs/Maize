@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float minSpeedThreshold;
     [SerializeField] Animator anim;
     [SerializeField] float shotgunLinger = 1;
+    [SerializeField] float shotgunRateOfFire = 0.1f;
     [SerializeField] AudioManager breathingSFXManager;
+    [SerializeField] GameObject bloodParticleSystem;
 
     // Hidden Fields
     Vector2 moveDirection;
     private bool isSprinting;
+    private bool canFire = true;
     private float speed;
     private float stamina;
     GameController gameController;
@@ -50,9 +53,10 @@ public class PlayerController : MonoBehaviour
             speed = isSprinting ? sprintSpeed : baseSpeed;
 
             // Check Shotgun
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canFire)
             {
                 StartCoroutine(ShotgunFire());
+                StartCoroutine(RestrictRateOfFire());
             }
 
             // 2D Movement
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private IEnumerator ShotgunFire() {
+        // Try to fire the gun
         if (gameController.getAmmo() > 0)
         {
             anim.SetTrigger("Shoot");
@@ -117,10 +122,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator RestrictRateOfFire() 
+    {
+        canFire = false;
+        yield return new WaitForSeconds(shotgunRateOfFire);
+        canFire = true;
+    }
+
     public void Die() 
     {
         rb.freezeRotation = true;
         anim.SetTrigger("Killed");
+        breathingSFXManager.Play("Crunch");
+        stamina = 0;
     }
 
     void IsMoving(bool isMoving) 

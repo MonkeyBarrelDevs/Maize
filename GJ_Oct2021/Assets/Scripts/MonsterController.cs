@@ -8,6 +8,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField] protected Animator anim;
     [SerializeField] protected float stunTime = 3;
     [SerializeField] protected float detectionRadius = 5;
+    [SerializeField] GameObject bloodParticleSystem;
     protected AIPath aiPath;
     protected GameController gameController;
     protected GameObject player;
@@ -67,6 +68,7 @@ public class MonsterController : MonoBehaviour
 
     public virtual IEnumerator StunMonster() {
         // Debug.Log("Hi");
+        sprayBlood();
         circleCollider.enabled = false;
         isStunned = true;
         anim.SetTrigger("Stunned");
@@ -108,5 +110,10 @@ public class MonsterController : MonoBehaviour
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
         player = GameObject.FindWithTag("Player");
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+    }
+
+    protected void sprayBlood() 
+    {
+        Instantiate(bloodParticleSystem, transform.position, transform.rotation);
     }
 }

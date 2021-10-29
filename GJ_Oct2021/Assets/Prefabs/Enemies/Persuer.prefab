@@ -128,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2190261038620016348}
   stunTime: 3
+  detectionRadius: 5
+  bloodParticleSystem: {fileID: 8682596778014586159, guid: bd6b7306fb0b19842a544e81a6f251b7, type: 3}
 --- !u!58 &2192627609831227063
 CircleCollider2D:
   m_ObjectHideFlags: 0

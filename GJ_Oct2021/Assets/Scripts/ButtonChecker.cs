@@ -18,33 +18,41 @@ public class ButtonChecker : MonoBehaviour
     {
         if (Input.GetButtonDown("Submit"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 1)
+            switch (SceneManager.GetActiveScene().buildIndex) 
             {
-                Mainmenuenter.SetTrigger("EnterPressed");
-                Lvlloader.LoadLevelAtIndex(2); // Go to controls menu
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                Mainmenuenter.SetTrigger("Continue");
-                Lvlloader.LoadLevelAtIndex(3); // Go to gameplay
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5) 
-            {
-                manager.Play("Continue");
-                Lvlloader.LoadLevelAtIndex(1); // Return to main menu
+                case 0:
+                    Lvlloader.LoadNextLevel(); // Go to main menu
+                    break;
+                case 1:
+                    Mainmenuenter.SetTrigger("EnterPressed");
+                    Lvlloader.LoadNextLevel(); // Go to controls menu
+                    break;
+                case 2:
+                    Mainmenuenter.SetTrigger("Continue");
+                    Lvlloader.LoadLevelAtIndex(3); // Go to gameplay
+                    break;
+                case 4:
+                    manager.Play("Continue");
+                    Lvlloader.LoadLevelAtIndex(1); // Return to main menu
+                    break;
+                case 5:
+                    manager.Play("Continue");
+                    Lvlloader.LoadLevelAtIndex(1); // Return to main menu
+                    break;
             }
         }
         else if (Input.GetButtonDown("Cancel"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 1)
+            switch (SceneManager.GetActiveScene().buildIndex) 
             {
-                Mainmenuexit.SetTrigger("EscapePressed");
-                Application.Quit(); // Quit application
-            }
-            else if (SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                Mainmenuexit.SetTrigger("Return");
-                Lvlloader.LoadLevelAtIndex(1); // Return to main menu
+                case 1:
+                    Mainmenuexit.SetTrigger("EscapePressed");
+                    Application.Quit(); // Quit application
+                    break;
+                case 2:
+                    Mainmenuexit.SetTrigger("Return");
+                    Lvlloader.LoadLevelAtIndex(1); // Return to main menu
+                    break;
             }
         }
     }
