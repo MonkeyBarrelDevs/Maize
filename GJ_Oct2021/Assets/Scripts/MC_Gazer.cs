@@ -21,7 +21,7 @@ public class MC_Gazer : MonsterController
     }
 
     /// <summary>
-    /// Instead of becoming stunn when shot, the Gazer becomes enraged and chases the player.
+    /// Instead of becoming stunned when shot, the Gazer becomes enraged
     /// </summary>
     override
     public IEnumerator StunMonster() 
@@ -47,6 +47,9 @@ public class MC_Gazer : MonsterController
         }
     }
 
+    /// <summary>
+    /// While the Gazer is enraged, it runs around randomly
+    /// </summary>
     protected override void WanderingChaseCheck()
     {
         WanderingChaseCheck(!enraged);
