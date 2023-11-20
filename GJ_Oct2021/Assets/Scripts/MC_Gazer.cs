@@ -9,6 +9,9 @@ public class MC_Gazer : MonsterController
     bool enraged = false;
     bool enraging = false;
 
+    /// <summary>
+    /// The Gazer only becomes stunned while they are in the player's line-of-sight
+    /// </summary>
     public void InFlashlight(bool inFlashlight)
     {
         if (!enraged) { 
@@ -17,26 +20,27 @@ public class MC_Gazer : MonsterController
         }
     }
 
+    /// <summary>
+    /// Instead of becoming stunn when shot, the Gazer becomes enraged and chases the player.
+    /// </summary>
     override
     public IEnumerator StunMonster() 
     {
-        sprayBlood();
+        sprayBlood(); // Activates the blood spray particle VFX
         if (!enraged)
         {
-            Debug.Log("Gaze");
-
-            // Starts Enrage
+            // Set up the Gazer's enrage state
             enraged = true;
             float initialSpeed = aiPath.maxSpeed;
             aiPath.maxSpeed = initialSpeed * speedMultiplier;
 
-            // Enrage Animation Stun
+            // Hold the Gazer in place while its enrage animation plays
             isStunned = true;
             anim.SetTrigger("Enraged");
             yield return new WaitForSeconds(stunTime);
             isStunned = false;
 
-            // Resolves Enrage
+            // Switch off its enrage after a set amount of time
             yield return new WaitForSeconds(enrageTime);
             enraged = false;
             aiPath.maxSpeed = initialSpeed;
